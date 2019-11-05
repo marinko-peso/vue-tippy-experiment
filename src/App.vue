@@ -1,17 +1,31 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button>Show Tooltip Manually</button>
+
+    <p>
+      <span>Tooltip Content</span>
+      <input v-model="tooltipContent" type="text" />
+    </p>
+    <p>
+      <tooltip>
+        <button>Tooltip On Me!</button>
+        <template #content>
+          {{ tooltipContent }}
+        </template>
+      </tooltip>
+    </p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Tooltip from './components/Tooltip';
 
 export default {
   name: 'app',
+  data: () => ({ tooltipContent: '' }),
   components: {
-    HelloWorld
+    Tooltip
   }
 }
 </script>

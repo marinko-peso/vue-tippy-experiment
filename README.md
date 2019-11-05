@@ -1,2 +1,2 @@
 # vue-tippy-experiment
-Experiment with wrapping tippy in Vue
+Just an experiment with wrapping tippy in Vue
