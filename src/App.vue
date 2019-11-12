@@ -4,11 +4,15 @@
     <button>Show Tooltip Manually</button>
 
     <p>
-      <span>Tooltip Content</span>
+      <span>Dynamic Tooltip Content: </span>
       <input v-model="tooltipContent" type="text" />
     </p>
     <p>
-      <tooltip>
+      <span>Force Tooltip Display: </span>
+      <input v-model="tooltipDisplayed" type="checkbox" />
+    </p>
+    <p>
+      <tooltip :display="tooltipDisplayed" bottom>
         <button>Tooltip On Me!</button>
         <template #content>
           {{ tooltipContent }}
@@ -23,7 +27,7 @@ import Tooltip from './components/Tooltip';
 
 export default {
   name: 'app',
-  data: () => ({ tooltipContent: '' }),
+  data: () => ({ tooltipContent: '', tooltipDisplayed: false }),
   components: {
     Tooltip
   }

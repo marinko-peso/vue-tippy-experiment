@@ -8,7 +8,7 @@ export default {
   name: 'tooltip',
   props: {
     content: { type: String, default: '' },
-    value: { type: Boolean, default: false },
+    display: { type: Boolean, default: false },
     event: { type: String, default: 'mouseenter focus' },
     config: { type: Object, default: () => ({}) }
   },
@@ -34,8 +34,6 @@ export default {
      */
     getContent() {
       const contentSlot = this.$slots.content && this.$slots.content[0];
-      // eslint-disable-next-line
-      debugger;
       if (contentSlot && contentSlot.text) return contentSlot.text;
       return this.content;
     },
@@ -50,9 +48,9 @@ export default {
     content() {
       this.setContent();
     },
-    value(display) {
+    display(val) {
       if (!this.tooltip) return;
-      return display ? this.tooltip.show() : this.tooltip.hide();
+      return val ? this.tooltip.show() : this.tooltip.hide();
     }
   },
   updated() {
